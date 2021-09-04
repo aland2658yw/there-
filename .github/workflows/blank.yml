@@ -1,0 +1,15 @@
+$AutoItIncludeFolder=FileSelectFolder("CODE SCANNER: Please identify the AutoIt Include folder", '', 0, @ProgramFilesDir & '\AutoIt3')
+MsgBox(0, 'Path', _GetAutoItPath())
+
+Func _GetAutoItPath()
+    Local $sPath = RegRead("HKLM\SOFTWARE\AutoIt v3\AutoIt", "InstallDir")
+    If @error Or Not FileExists($sPath) Then $sPath = @ProgramFilesDir
+    Return $sPath
+EndFunc   ;==>_GetIncludePath
+$AutoItIncludeFolder=FileSelectFolder("CODE SCANNER: Please identify the AutoIt Include folder", '', 0, _GetAutoItPath())
+
+Func _GetAutoItPath()
+    Local $sPath = RegRead("HKLM\SOFTWARE\AutoIt v3\AutoIt", "InstallDir")
+    If @error Or Not FileExists($sPath) Then $sPath = @ProgramFilesDir
+    Return $sPath
+EndFunc   ;==>_GetIncludePath
